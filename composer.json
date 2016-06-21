@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "*",
         "bower-asset/jquery": "@stable",
         "miloschuman/yii2-highcharts-widget": "dev-master",
-        "2amigos/yii2-arrayquery-component": "*"
+        "2amigos/yii2-arrayquery-component": "*",
+        "dmstr/yii2-adminlte-asset": "2.*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
