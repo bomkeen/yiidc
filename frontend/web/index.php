@@ -15,4 +15,6 @@ $config = yii\helpers\ArrayHelper::merge(
 );
 
 $application = new yii\web\Application($config);
+// edit utehn
+require(__DIR__ . '/../../common/component/functions.php');
 $application->run();
