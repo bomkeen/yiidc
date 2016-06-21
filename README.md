@@ -4,7 +4,7 @@
 
 - unix  
 -php -m | grep xdebug  
-- windows__
+- windows  
 -php -m | findstr xdebug  
 -composer update --prefer-dist -vvv --profile  
 
