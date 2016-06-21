@@ -1,9 +1,9 @@
 #setup
--git clone https://github.com/sirensoft/yiidc
--cd yiidc
+-git clone https://github.com/sirensoft/yiidc <br>
+-cd yiidc<br>
 
--// unix
--php -m | grep xdebug
--// windows
--php -m | findstr xdebug
--composer update --prefer-dist -vvv --profile
+- unix<br>
+-php -m | grep xdebug<br>
+-windows<br>
+-php -m | findstr xdebug<br>
+-composer update --prefer-dist -vvv --profile <br>
