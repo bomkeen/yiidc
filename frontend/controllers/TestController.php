@@ -36,6 +36,9 @@ class TestController extends \yii\web\Controller
         $this->json_output();
         $sql = "select * from user";        
         $raw = $this->query_all($sql);
+        $query = new ArrayQuery($raw);
+        $model = $query->addCondition('username'," like a")->find();
+        return $model;
         
     }
 
