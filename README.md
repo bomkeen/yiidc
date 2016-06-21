@@ -1,13 +1,13 @@
 #setup
--git clone https://github.com/sirensoft/yiidc__
--cd yiidc__
+-git clone https://github.com/sirensoft/yiidc  
+-cd yiidc  
 
-- unix__
--php -m | grep xdebug__
+- unix  
+-php -m | grep xdebug  
 - windows__
--php -m | findstr xdebug__
--composer update --prefer-dist -vvv --profile__
+-php -m | findstr xdebug  
+-composer update --prefer-dist -vvv --profile  
 
 # get fetch
--git reset --hard HEAD__
--git pull__
+-git reset --hard HEAD  
+-git pull  
