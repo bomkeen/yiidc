@@ -9,4 +9,5 @@
 -composer update --prefer-dist -vvv --profile <br>
 
 # get fetch
--git fetch https://github.com/sirensoft/yiidc <br>
+-git reset --hard HEAD<br>
+-git pull <br>
