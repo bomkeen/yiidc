@@ -1,12 +1,9 @@
-#setup project
--git clone https://github.com/sirensoft/yiidc 
+#clone project
+-git clone https://github.com/sirensoft/yiidc  
 -chmod -R 0777 yiidc   
--cd yiidc
+-cd yiidc  
 
-
-
-
-#INSTALL VENDOR
+#INSTALL
 [unix]  
 -php -m | grep xdebug  
 [windows]  
