@@ -1,14 +1,20 @@
-#setup
+#setup project
 -git clone https://github.com/sirensoft/yiidc 
 -chmod -R 0777 yiidc   
 -cd yiidc
--yii migrate   
 
+
+
+
+#INSTALL VENDOR
 [unix]  
 -php -m | grep xdebug  
 [windows]  
--php -m | findstr xdebug  
+-php -m | findstr xdebug
+[composer]  
 -composer update --prefer-dist -vvv --profile  
+[database]  
+-yii migrate   
 
 # get fetch
 -git reset --hard HEAD  
