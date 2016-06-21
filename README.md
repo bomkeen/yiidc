@@ -1,10 +1,12 @@
 #setup
--git clone https://github.com/sirensoft/yiidc  
--cd yiidc  
+-git clone https://github.com/sirensoft/yiidc 
+-chmod -R 0777 yiidc   
+-cd yiidc
+-yii migrate   
 
-- unix  
+[unix]  
 -php -m | grep xdebug  
-- windows  
+[windows]  
 -php -m | findstr xdebug  
 -composer update --prefer-dist -vvv --profile  
 
