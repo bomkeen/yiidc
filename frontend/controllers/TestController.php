@@ -7,9 +7,10 @@ use dosamigos\arrayquery\ArrayQuery;
 use common\components\AppController;
 
 class TestController extends AppController {
-    /* public function beforeAction($event) {
-      return parent::beforeAction($event);
-      } */
+
+    public function beforeAction($event) {
+        return parent::beforeAction($event);
+    }
 
     public $enableCsrfValidation = false;
 
