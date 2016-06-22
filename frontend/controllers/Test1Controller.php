@@ -39,18 +39,18 @@ class Test1Controller extends AppController {
     }
 
     public function actionIndex() {
-        $this->permitRole([0, 1, 2, 3]);
+        
         return $this->render('index');
     }
 
     public function actionGetUser() {
-        $this->permitRole([0,1, 2, 3,4]);
-        $this->json_output();
+        $this->permitRole([1, 2, 3,4]);
+        //$this->json_output();
         $sql = "select * from user";
         $raw = $this->query_all($sql);
         $q = new ArrayQuery($raw);
         $model = $q->addCondition('username', " like a")->find();
-        return $model;
+        return $this->render('get-user',['data'=>$model]);
     }
 
     public function actionDoSome() {
