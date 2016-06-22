@@ -30,6 +30,7 @@ class AppController extends \yii\web\Controller {
         $r = $this->getRole();   
         if(empty($role)){
              throw  new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
+             
         }
         if( !in_array($r,$role)){
             throw  new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
