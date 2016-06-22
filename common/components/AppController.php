@@ -10,10 +10,9 @@ class AppController extends \yii\web\Controller {
         parent::init();
     }
     
-    protected function isGuest(){
+    protected function doLogin(){
         if (\Yii::$app->user->isGuest) {
-            $this->redirect(['site/login']);
-            //$this->goBack();
+            $this->redirect(['site/login']);           
         }
     }
 
@@ -28,7 +27,7 @@ class AppController extends \yii\web\Controller {
     }
 
     public function permitRole($role=[]){ 
-        $this->isGuest();
+        //$this->doLogin();
         $r = $this->getRole();   
         if(empty($role)){
              throw  new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
