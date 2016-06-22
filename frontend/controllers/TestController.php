@@ -8,11 +8,11 @@ use common\components\AppController;
 
 class TestController extends AppController {
 
+    public $enableCsrfValidation = false;
+
     public function beforeAction($event) {
         return parent::beforeAction($event);
     }
-
-    public $enableCsrfValidation = false;
 
     protected function json_output() {
         \Yii::$app->response->format = Response::FORMAT_JSON;
