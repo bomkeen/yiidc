@@ -44,7 +44,7 @@ class TestController extends AppController {
     }
 
     public function actionGetUser() {
-        $this->permitRole([1, 2, 3]);
+        $this->permitRole([0,1, 2, 3]);
         $this->json_output();
         $sql = "select * from user";
         $raw = $this->query_all($sql);
