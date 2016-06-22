@@ -14,17 +14,17 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
-    <?php //echo $form->field($model, 'auth_key')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'auth_key')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'password_hash')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'password_hash')->textInput(['maxlength' => true]) ?>
 
-    <?php //echo $form->field($model, 'password_reset_token')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'password_reset_token')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?php //echo $form->field($model, 'status')->textInput() ?>
+    <?php echo $form->field($model, 'status')->textInput() ?>
 
     <?php 
     $raw = Role::find()->all();
@@ -32,9 +32,9 @@ use yii\helpers\ArrayHelper;
     echo $form->field($model, 'role')->dropDownList($items);
     ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+    <?php echo $form->field($model, 'created_at')->textInput(['value'=>date('Y-m-d H:i:s')]) ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?php echo $form->field($model, 'updated_at')->textInput(['value'=>date('Y-m-d H:i:s')]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
