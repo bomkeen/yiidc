@@ -2,8 +2,6 @@
 $this->registerCssFile('https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css', ['async' => false, 'defer' => true]);
 
 $this->registerJsFile('https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js', ['position' => $this::POS_HEAD,]);
-
-
 ?>
 
 <div class="test-default-index">
@@ -23,5 +21,4 @@ var map = L.mapbox.map('map', 'mapbox.streets')
         
 JS;
 $this->registerJs($js);
-   
 ?>
