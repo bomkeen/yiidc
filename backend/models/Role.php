@@ -49,7 +49,7 @@ class Role extends \yii\db\ActiveRecord
             'note3' => 'Note3',
         ];
     }
-    public function get_role_full_name(){
+    public function getRoleFullName(){
         return $this->role.'-'.$this->role_name;
     }
     

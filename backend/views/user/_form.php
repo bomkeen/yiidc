@@ -28,7 +28,7 @@ use yii\helpers\ArrayHelper;
 
     <?php 
     $raw = Role::find()->all();
-    $items= ArrayHelper::map($raw, 'role', '_role_full_name');
+    $items= ArrayHelper::map($raw, 'role', 'roleFullName');
     echo $form->field($model, 'role')->dropDownList($items);
     ?>
 
