@@ -138,9 +138,7 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        if(\Yii::$app->user->isGuest){
-             throw new \yii\web\ConflictHttpException("...");
-        }
+        
         return $this->render('about');
     }
 
