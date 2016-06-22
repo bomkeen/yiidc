@@ -7,10 +7,9 @@ use dosamigos\arrayquery\ArrayQuery;
 use common\components\AppController;
 
 class TestController extends AppController {
-
-   /* public function beforeAction($event) {
-        return parent::beforeAction($event);
-    }*/
+    /* public function beforeAction($event) {
+      return parent::beforeAction($event);
+      } */
 
     public $enableCsrfValidation = false;
 
@@ -39,10 +38,12 @@ class TestController extends AppController {
     }
 
     public function actionIndex() {
+        $this->allowRole([0, 1, 2, 3]);
         return $this->render('index');
     }
 
     public function actionGetUser() {
+        $this->allowRole([1, 2, 3]);
         $this->json_output();
         $sql = "select * from user";
         $raw = $this->query_all($sql);
@@ -51,9 +52,9 @@ class TestController extends AppController {
         return $model;
     }
 
-    public function actionDoSome() {        
-            $this->allowRole([0,1,2,3]); 
-            return "OK";
+    public function actionDoSome() {
+        $this->allowRole([0, 1, 2, 3]);
+        return "OK";
     }
 
 }
