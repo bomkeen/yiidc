@@ -21,13 +21,12 @@ class AppController extends \yii\web\Controller {
         if (!\Yii::$app->user->isGuest) {
              return \Yii::$app->user->identity->role;
          }  else {
-             return 0;
-             //return $this->redirect(['site/login']);
+             return "?";            
          }
     }
 
     public function permitRole($role=[]){ 
-        //$this->doLogin();
+        
         $r = $this->getRole();   
         if(empty($role)){
              throw  new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
