@@ -28,12 +28,20 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'YiiDC',
+        'brandLabel' => '<span class="glyphicon glyphicon-th-large"></span>',
+        //'brandLabel' => 'YiiDC',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-custom navbar-fixed-top',
         ],
     ]);
+    
+     echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-left'],
+                'encodeLabels' => false,
+                'items' => [['label' => 'YiiDC ']],
+            ]);
+    
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
