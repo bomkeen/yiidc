@@ -7,7 +7,7 @@
 
 use yii\helpers\Html;
 
-$this->title = "Not Permission";
+$this->title = "ERROR";
 ?>
 <div class="site-error">
 
