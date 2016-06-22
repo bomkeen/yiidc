@@ -39,12 +39,12 @@ class TestController extends AppController {
     }
 
     public function actionIndex() {
-        $this->allowRole([0, 1, 2, 3]);
+        $this->permitRole([0, 1, 2, 3]);
         return $this->render('index');
     }
 
     public function actionGetUser() {
-        $this->allowRole([1, 2, 3]);
+        $this->permitRole([1, 2, 3]);
         $this->json_output();
         $sql = "select * from user";
         $raw = $this->query_all($sql);
@@ -54,7 +54,7 @@ class TestController extends AppController {
     }
 
     public function actionDoSome() {
-        $this->allowRole([0, 1, 2, 3]);
+        $this->permitRole([0, 1, 2, 3]);
         return "OK";
     }
 

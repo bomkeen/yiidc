@@ -19,10 +19,10 @@ class AppController extends \yii\web\Controller {
          }
     }
 
-    public function allowRole($role=[]){        
+    public function permitRole($role=[]){        
         $r = $this->getRole();         
         if(!in_array($r,$role)){
-            throw  new \yii\web\ConflictHttpException("ไม่ได้รับอนุญาต");
+            throw  new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
         }         
         
     }
