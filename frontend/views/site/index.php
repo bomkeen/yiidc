@@ -9,9 +9,8 @@ $this->title = 'YiiDC';
     <div class="jumbotron">
         <h1>Congratulations!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" >Get started with Yii</a></p>
+        <p class="lead">You have successfully created your Yii-powered application.</p>        
+        <p><?=  yii\helpers\Html::a('Get started with Me', ['/test/default/index'],['class'=>'btn btn-lg btn-success'])?></p>
     </div>
 
     <div class="body-content">
