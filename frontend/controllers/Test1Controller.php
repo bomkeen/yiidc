@@ -6,7 +6,7 @@ use yii\web\Response;
 use dosamigos\arrayquery\ArrayQuery;
 use common\components\AppController;
 
-class TestController extends AppController {
+class Test1Controller extends AppController {
 
     public $enableCsrfValidation = false;
 
@@ -44,7 +44,7 @@ class TestController extends AppController {
     }
 
     public function actionGetUser() {
-        $this->permitRole([0,1, 2, 3]);
+        $this->permitRole([0,1, 2, 3,4]);
         $this->json_output();
         $sql = "select * from user";
         $raw = $this->query_all($sql);

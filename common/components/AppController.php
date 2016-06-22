@@ -9,19 +9,31 @@ class AppController extends \yii\web\Controller {
     public function init() {
         parent::init();
     }
+    
+    protected function isGuest(){
+        if (\Yii::$app->user->isGuest) {
+            $this->redirect(['site/login']);
+            //$this->goBack();
+        }
+    }
 
-   
+    
     protected function getRole(){
         if (!\Yii::$app->user->isGuest) {
              return \Yii::$app->user->identity->role;
          }  else {
              return 0;
+             //return $this->redirect(['site/login']);
          }
     }
 
-    public function permitRole($role=[]){        
-        $r = $this->getRole();         
-        if(!in_array($r,$role)){
+    public function permitRole($role=[]){ 
+        $this->isGuest();
+        $r = $this->getRole();   
+        if(empty($role)){
+             throw  new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
+        }
+        if( !in_array($r,$role)){
             throw  new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
         }         
         
