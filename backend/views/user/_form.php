@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use backend\models\Role;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\User */
@@ -14,17 +16,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'auth_key')->textInput(['maxlength' => true]) ?>
+    <?php //echo $form->field($model, 'auth_key')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'password_hash')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'password_reset_token')->textInput(['maxlength' => true]) ?>
+    <?php //echo $form->field($model, 'password_reset_token')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?php //echo $form->field($model, 'status')->textInput() ?>
 
-    <?= $form->field($model, 'role')->textInput() ?>
+    <?php 
+    $raw = Role::find()->all();
+    $items= ArrayHelper::map($raw, 'role', '_role_full_name');
+    echo $form->field($model, 'role')->dropDownList($items);
+    ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>
 
