@@ -26,7 +26,7 @@ class Test3Controller extends \yii\web\Controller
                     [
                         'actions'=>['index'],
                         'allow'=> true,
-                        'roles'=>[0,1,2,3]
+                        'roles'=>[0]
                     ],
                       
                 ]
