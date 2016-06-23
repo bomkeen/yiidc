@@ -19,4 +19,7 @@ class DefaultController extends AppController
         //$this->permitRole([3]);
         return $this->render('index');
     }
+    public function actionChart(){
+        return $this->render('chart');
+    }
 }
