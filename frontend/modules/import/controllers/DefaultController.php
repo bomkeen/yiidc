@@ -21,13 +21,17 @@ class DefaultController extends AppController {
     }
 
     public function actionIndex() {
-
+        
+        $dir_upload = \Yii::getAlias('@frontend/web').DIRECTORY_SEPARATOR."upload";
+        if(!is_dir($dir_upload)){
+            mkdir($dir_upload); 
+        }
         $model = new UploadFiles();
         $success = "";
-
+         
         if (Yii::$app->request->isPost) {
             $uFile = UploadedFile::getInstance($model, 'file');
-            if ($uFile->saveAs('./upload' . DIRECTORY_SEPARATOR . $uFile)) {
+            if ($uFile->saveAs($dir_upload . DIRECTORY_SEPARATOR . $uFile)) {
                 $model->filename = $uFile->baseName .".".$uFile->extension;
                 $model->size = $uFile->size;
                 $model->dupdate = date("Y-m-d H:i:s");
