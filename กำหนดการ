@@ -4,7 +4,7 @@
    การทำ Requirement ,การปรับแต่ง php.ini ให้รองรับ
 2) การเขียน PHP แบบ Native
 3) Array ในภาษา PHP
-4) การปรับแต่ง Main Layout
+4) การปรับแต่ง Main Layout ของ Project
 5) การเขียนโปรแกรมแบบ MVC ด้วย Yii
 6) Simple RBAC (Role Base Access Control)
 7) SQL to  Gridview  and Excel Export
