@@ -28,7 +28,7 @@ echo GridView::widget([
             'attribute'=>'filename',
             'format'=>'raw',
             'value'=>function($model){
-                return Html::a($model->filename, ['/import/default/load-zip','file'=>$model->filename]);
+                return Html::a($model->filename, ['/import/default/load-to-db','file'=>$model->filename]);
             }
         ],
         'status'

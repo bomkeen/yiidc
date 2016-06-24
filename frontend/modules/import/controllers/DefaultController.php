@@ -60,7 +60,8 @@ class DefaultController extends AppController {
         }
     }
 
-    public function actionLoadZip($file) {
+    public function actionLoadToDb($file) {
+        
         
         $dir_unzip = \Yii::getAlias("@upload");
         if (!is_dir($dir_unzip)) {
@@ -71,7 +72,8 @@ class DefaultController extends AppController {
         $path_unzip= \Yii::getAlias("@unzip/");
         
         if(!file_exists($path_zip.$file)){
-            return "ไม่พบไฟล์";
+            \Yii::$app->session->setFlash('success',"$file ไม่พบไฟล์นี้");
+            return $this->redirect(['/import']);
         }        
         
         $this->unzip($file);
