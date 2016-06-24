@@ -3,6 +3,7 @@
 use yii\widgets\Pjax;
 use yii\bootstrap\ActiveForm;
 use yii\grid\GridView;
+use yii\helpers\Html;
 
 ?>
 <div class="Import-default-index">
@@ -20,7 +21,17 @@ $form->end();
 <hr>
 <?php
 echo GridView::widget([
-    'dataProvider'=>$dataProvider
+    'dataProvider'=>$dataProvider,
+    'columns'=>[
+        'id',
+        [
+            'attribute'=>'filename',
+            'format'=>'raw',
+            'value'=>function($model){
+                return Html::a($model->filename, ['/import/default/load-zip','file'=>$model->filename]);
+            }
+        ]
+    ]
 ]);
 
 ?>

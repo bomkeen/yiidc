@@ -7,6 +7,9 @@ return [
             'username' => 'root',
             'password' => '112233',
             'charset' => 'utf8',
+            'attributes' => array(
+                PDO::MYSQL_ATTR_LOCAL_INFILE => true
+            ),
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
