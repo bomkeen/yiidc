@@ -14,4 +14,7 @@ return [
             'class' => 'frontend\modules\import\Import',
         ],
     ],
+    'controllerMap' => [
+        'file' => 'mdm\\upload\\FileController', // use to show or download file
+    ],
 ];
