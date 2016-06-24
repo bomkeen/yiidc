@@ -37,5 +37,6 @@ class Test3Controller extends \yii\web\Controller
     {
         return $this->render('index');
     }
+    
 
 }
