@@ -32,18 +32,14 @@ class DefaultController extends AppController {
             rmdir($dir);
         }
     }
-
-
-
+    
     protected function load_data($txtfile, $table) {
         $transaction = \Yii::$app->db->beginTransaction();
         try {
-
             $sql = "LOAD DATA LOCAL INFILE '$txtfile'";
             $sql.= " REPLACE INTO TABLE $table";
             $sql.= " FIELDS TERMINATED BY '|'  LINES TERMINATED BY '\r\n' IGNORE 1 LINES";
             $raw = \Yii::$app->db->createCommand($sql)->execute();
-
             $transaction->commit();
         } catch (Exception $e) {
             $transaction->rollBack();
@@ -51,11 +47,10 @@ class DefaultController extends AppController {
     }
 
     protected function unzip($file) {
-
         $zip = new \ZipArchive();
-
-        $path_zip = \Yii::getAlias('@frontend/web') . DIRECTORY_SEPARATOR . "upload/";
-        $path_unzip = \Yii::getAlias('@frontend/web') . DIRECTORY_SEPARATOR . "unzip/";
+        
+        $path_zip = \Yii::getAlias("@upload/");
+        $path_unzip= \Yii::getAlias("@unzip/");
 
         $file_zip = $path_zip . '/' . $file;
         if ($zip->open($file_zip) === TRUE) {
@@ -66,12 +61,19 @@ class DefaultController extends AppController {
     }
 
     public function actionLoadZip($file) {
-        $path_zip = \Yii::getAlias('@frontend/web') . DIRECTORY_SEPARATOR . "upload/";
+        
+        $dir_unzip = \Yii::getAlias("@upload");
+        if (!is_dir($dir_unzip)) {
+            mkdir($dir_unzip);
+        }
+        
+        $path_zip = \Yii::getAlias("@upload/");
+        $path_unzip= \Yii::getAlias("@unzip/");
+        
         if(!file_exists($path_zip.$file)){
             return "ไม่พบไฟล์";
         }        
-        $path_unzip = \Yii::getAlias('@frontend/web') . DIRECTORY_SEPARATOR . "unzip/";
-
+        
         $this->unzip($file);
         $path_unzip_ = $path_unzip . $file;
         $txtFiles = FileHelper::findFiles($path_unzip_, [
@@ -86,11 +88,16 @@ class DefaultController extends AppController {
         }
         $this->rrmdir($path_unzip_);
         unlink($path_zip.$file);
+        $model = UploadFiles::find()->where(['filename'=>$file])->one();
+        $model->status = "success";
+        $model->update();
+         \Yii::$app->session->setFlash('success',"$file นำเข้าสำเร็จ");
         $this->redirect(['/import']);
     }
 
     public function actionIndex() {
-        $dir_upload = \Yii::getAlias('@frontend/web') . DIRECTORY_SEPARATOR . "upload";
+        //$dir_upload = \Yii::getAlias('@frontend/web') . DIRECTORY_SEPARATOR . "upload";
+        $dir_upload = \Yii::getAlias("@upload");
         if (!is_dir($dir_upload)) {
             mkdir($dir_upload);
         }
@@ -107,6 +114,7 @@ class DefaultController extends AppController {
                 //$model->status='';
                 $model->save();
                 $success = "success";
+                 \Yii::$app->session->setFlash('success',"อัพโหลด $uFile->baseName.$uFile->extension  สำเร็จ");
             }
         }
 

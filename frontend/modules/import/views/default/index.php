@@ -30,7 +30,8 @@ echo GridView::widget([
             'value'=>function($model){
                 return Html::a($model->filename, ['/import/default/load-zip','file'=>$model->filename]);
             }
-        ]
+        ],
+        'status'
     ]
 ]);
 
