@@ -1,0 +1,26 @@
+วันแรก
+เช้า
+1) ประวัติความเป็นมา, ติดตั้ง  Yii2  Project 
+   การทำ Requirement ,การปรับแต่ง php.ini ให้รองรับ
+2) การเขียน PHP แบบ Native
+3) Array ในภาษา PHP
+4) การปรับแต่ง Main Layout
+5) การเขียนโปรแกรมแบบ MVC ด้วย Yii
+6) Simple RBAC (Role Base Access Control)
+7) SQL to  Gridview  and Excel Export
+8) Gridview Search by Pjax
+
+บ่าย
+9) การใช้งาน Gii
+10) การสร้าง Module
+11) การแจกและติดตั้ง Module คนอื่น
+
+
+วันที่สอง
+เช้า
+12) การทำ Chart
+13) Json และ RESTful Service (Yii or NodeJs)
+
+บ่าย
+14) การทำ Map ด้วย Mapbox Javascript
+
