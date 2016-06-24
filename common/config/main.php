@@ -10,5 +10,8 @@ return [
         'test' => [
             'class' => 'frontend\modules\test\Test',
         ],
+        'import' => [
+            'class' => 'frontend\modules\import\Import',
+        ],
     ],
 ];
