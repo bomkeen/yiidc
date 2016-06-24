@@ -23,7 +23,8 @@
         "2amigos/yii2-arrayquery-component": "*",
         "dmstr/yii2-adminlte-asset": "2.*",
         "mdmsoft/yii2-upload-file": "dev-master",
-        "2amigos/yii2-file-upload-widget": "~1.0"
+        "2amigos/yii2-file-upload-widget": "~1.0",
+        "kartik-v/yii2-grid": "@dev"
        
     },
     "require-dev": {

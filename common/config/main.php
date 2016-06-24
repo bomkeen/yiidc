@@ -1,4 +1,5 @@
 <?php
+
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
@@ -7,6 +8,9 @@ return [
         ],
     ],
     'modules' => [
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+        ],
         'test' => [
             'class' => 'frontend\modules\test\Test',
         ],
