@@ -1,7 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+//use yii\grid\GridView;
+use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\UserSearch */
@@ -18,12 +19,19 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?= GridView::widget([
+    <?=
+    GridView::widget([
+        'panel' => [
+            'before' => ''
+        ],
+        'export' => [
+            'showConfirmAlert' => false,
+            'target' => GridView::TARGET_BLANK
+        ],
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             //'id',
             'username',
             //'auth_key',
@@ -31,11 +39,11 @@ $this->params['breadcrumbs'][] = $this->title;
             //'password_reset_token',
             // 'email:email',
             // 'status',
-             ['attribute'=>'role','value'=>'role'],
-             //'created_at',
+            ['attribute' => 'role', 'value' => 'role'],
+            //'created_at',
             // 'updated_at',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+    ?>
 </div>
