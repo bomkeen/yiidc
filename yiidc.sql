@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2016-06-24 16:01:53
+Date: 2016-06-24 17:00:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1447,23 +1447,6 @@ CREATE TABLE `rehabilitation` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for role
--- ----------------------------
-DROP TABLE IF EXISTS `role`;
-CREATE TABLE `role` (
-  `role` int(11) NOT NULL,
-  `role_name` varchar(255) DEFAULT NULL,
-  `note1` varchar(255) DEFAULT NULL,
-  `note2` varchar(255) DEFAULT NULL,
-  `note3` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`role`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of role
--- ----------------------------
-
--- ----------------------------
 -- Table structure for service
 -- ----------------------------
 DROP TABLE IF EXISTS `service`;
@@ -1620,6 +1603,23 @@ CREATE TABLE `user` (
 
 -- ----------------------------
 -- Records of user
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for userrole
+-- ----------------------------
+DROP TABLE IF EXISTS `userrole`;
+CREATE TABLE `userrole` (
+  `role` int(11) NOT NULL,
+  `rolename` varchar(255) DEFAULT NULL,
+  `note1` varchar(255) DEFAULT NULL,
+  `note2` varchar(255) DEFAULT NULL,
+  `note3` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`role`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of userrole
 -- ----------------------------
 
 -- ----------------------------
