@@ -39,11 +39,11 @@ class UploadFiles extends \yii\db\ActiveRecord {
      */
     public function attributeLabels() {
         return [
-            'id' => 'ID',
-            'filename' => 'Filename',
-            'size' => 'Size(Byte)',
-            'type' => 'Type',
-            'dupdate' => 'Dupdate',
+            'id' => '#',
+            'filename' => 'ชื่อไฟล์',
+            'size' => 'ขนาด(Byte)',
+            'type' => 'ประเภท',
+            'dupdate' => 'เวลา',
             'file' => 'กรุณาเลือกไฟล์',
             'status'=>'สถานะ'
         ];
