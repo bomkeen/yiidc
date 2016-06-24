@@ -2,7 +2,7 @@
 
 $number = [[1,2,3],[1,2,[1,'k']]];
 
-echo  $number[1];
+echo  '';
 
 $people = ["Peter"=>"35", "Ben"=>"37", "Joe"=>"43"];
 
