@@ -1,5 +1,6 @@
 วันแรก
 เช้า
+0) ติดตั้งโปรแกรมระบบ Apache,Mysql,PHP  เครื่องมือ Composer,Git , Netbean , Navicat 
 1) ประวัติความเป็นมา, ติดตั้ง  Yii2  Project 
    การทำ Requirement ,การปรับแต่ง php.ini ให้รองรับ
 2) การเขียน PHP แบบ Native
