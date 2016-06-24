@@ -6,21 +6,25 @@
 3) Array ในภาษา PHP
 4) การปรับแต่ง Main Layout ของ Project
 5) การเขียนโปรแกรมแบบ MVC ด้วย Yii
-6) Simple RBAC (Role Base Access Control)
-7) SQL to  Gridview  and Excel Export
-8) Gridview Search by Pjax
+6) การติดตั้ง Module ระบบนำเข้า text file สำเร็จรูป
+7) Simple RBAC (Role Base Access Control)
+8) Complex SQL Query to  Gridview  and Excel Export
+9) Gridview Search by Pjax
 
 บ่าย
-9) การใช้งาน Gii
-10) การสร้าง Module
-11) การแจกและติดตั้ง Module คนอื่น
+10) การใช้งาน Gii
+11) การสร้าง Module
+12) การแจกและติดตั้ง Module คนอื่น
 
 
 วันที่สอง
 เช้า
-12) การทำ Chart
-13) Json และ RESTful Service (Yii or NodeJs)
+13) การทำ Chart
+14) Json และ RESTful Service (Yii or NodeJs)
 
 บ่าย
-14) การทำ Map ด้วย Mapbox Javascript
+15) การทำ Map ด้วย Mapbox Javascript
+
+
+หมายเหตุ : จำลอง Error และการแก้ไข ระหว่างบรรยาย
 
