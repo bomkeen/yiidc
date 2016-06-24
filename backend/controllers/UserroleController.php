@@ -3,17 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Role;
-use backend\models\RoleSearch;
+use backend\models\Userrole;
+use backend\models\UserroleSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use common\components\AppController;
 
 /**
- * RoleController implements the CRUD actions for Role model.
+ * UserroleController implements the CRUD actions for Userrole model.
  */
-class RoleController extends AppController
+class UserroleController extends Controller
 {
     /**
      * @inheritdoc
@@ -31,12 +30,12 @@ class RoleController extends AppController
     }
 
     /**
-     * Lists all Role models.
+     * Lists all Userrole models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new RoleSearch();
+        $searchModel = new UserroleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +45,7 @@ class RoleController extends AppController
     }
 
     /**
-     * Displays a single Role model.
+     * Displays a single Userrole model.
      * @param integer $id
      * @return mixed
      */
@@ -58,14 +57,13 @@ class RoleController extends AppController
     }
 
     /**
-     * Creates a new Role model.
+     * Creates a new Userrole model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $this->permitRole([3]);
-        $model = new Role();
+        $model = new Userrole();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->role]);
@@ -77,14 +75,13 @@ class RoleController extends AppController
     }
 
     /**
-     * Updates an existing Role model.
+     * Updates an existing Userrole model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
      */
     public function actionUpdate($id)
     {
-        $this->permitRole([3]);
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -97,29 +94,28 @@ class RoleController extends AppController
     }
 
     /**
-     * Deletes an existing Role model.
+     * Deletes an existing Userrole model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
-        $this->permitRole([3]);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Role model based on its primary key value.
+     * Finds the Userrole model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Role the loaded model
+     * @return Userrole the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Role::findOne($id)) !== null) {
+        if (($model = Userrole::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

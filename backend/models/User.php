@@ -3,7 +3,7 @@
 namespace backend\models;
 
 use Yii;
-
+use backend\models\UserRole;
 
 /**
  * This is the model class for table "user".
@@ -59,6 +59,10 @@ class User extends \yii\db\ActiveRecord {
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+    
+    public function getRolename(){
+        return $this->hasOne(UserRole::className(),['role'=>'role']);
     }
 
     

@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Role;
+use backend\models\Userrole;
 
 /**
- * RoleSearch represents the model behind the search form about `backend\models\Role`.
+ * UserroleSearch represents the model behind the search form about `backend\models\Userrole`.
  */
-class RoleSearch extends Role
+class UserroleSearch extends Userrole
 {
     /**
      * @inheritdoc
@@ -19,7 +19,7 @@ class RoleSearch extends Role
     {
         return [
             [['role'], 'integer'],
-            [['role_name', 'note1', 'note2', 'note3'], 'safe'],
+            [['rolename', 'note1', 'note2', 'note3'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class RoleSearch extends Role
      */
     public function search($params)
     {
-        $query = Role::find();
+        $query = Userrole::find();
 
         // add conditions that should always apply here
 
@@ -62,7 +62,7 @@ class RoleSearch extends Role
             'role' => $this->role,
         ]);
 
-        $query->andFilterWhere(['like', 'role_name', $this->role_name])
+        $query->andFilterWhere(['like', 'rolename', $this->rolename])
             ->andFilterWhere(['like', 'note1', $this->note1])
             ->andFilterWhere(['like', 'note2', $this->note2])
             ->andFilterWhere(['like', 'note3', $this->note3]);

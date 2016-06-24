@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\RoleSearch */
+/* @var $model backend\models\UserroleSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="role-search">
+<div class="userrole-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'role') ?>
 
-    <?= $form->field($model, 'role_name') ?>
+    <?= $form->field($model, 'rolename') ?>
 
     <?= $form->field($model, 'note1') ?>
 

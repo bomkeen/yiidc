@@ -4,17 +4,17 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Role */
+/* @var $model backend\models\Userrole */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="role-form">
+<div class="userrole-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'role')->textInput() ?>
 
-    <?= $form->field($model, 'role_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'rolename')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'note1')->textInput(['maxlength' => true]) ?>
 
