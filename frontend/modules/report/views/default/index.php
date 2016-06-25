@@ -44,3 +44,4 @@ echo GridView::widget([
 ]);
 
 ?>
+<?php Pjax::end() ?>
