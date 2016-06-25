@@ -14,6 +14,8 @@ class DefaultController extends Controller
      * Renders the index view for the module
      * @return string
      */
+    public $enableCsrfValidation = false;
+    
     public function actionIndex()
     {
         $sql = "  SELECT p.CID,p.`NAME`,p.LNAME
