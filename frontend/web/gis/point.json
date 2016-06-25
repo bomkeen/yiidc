@@ -1,7 +1,4 @@
-{
-"type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-                                                                                
+{                                                                                
 "features": [
 { "type": "Feature", "properties": { "POLYTYPE": 1, "PROV_CODE": 65, "AMP_CODE": 7, "TAM_CODE": 3, "PROV_NAMT": "พิษณุโลก", "PROV_NAME": "PHITSANULOK", "AMP_NAMT": "วัดโบสถ์", "AMP_NAME": "WAT BOT", "TAM_NAMT": "ท้อแท้", "TAM_NAME": "THO THAE", "YEAR": 2007, "MALE": 2213, "FEMALE": 2297, "TOTAL": 4510, "HOUSE": 1320, "VERSION": "10.2" }, "geometry": { "type": "Point", "coordinates": [ 100.29424532227243, 16.980435487535534 ] } },
 { "type": "Feature", "properties": { "POLYTYPE": 1, "PROV_CODE": 65, "AMP_CODE": 1, "TAM_CODE": 3, "PROV_NAMT": "พิษณุโลก", "PROV_NAME": "PHITSANULOK", "AMP_NAMT": "เมืองพิษณุโลก", "AMP_NAME": "MUEANG PHITSANULOK", "TAM_NAMT": "วัดจันทร์", "TAM_NAME": "WAT CHAN", "YEAR": 2007, "MALE": 3118, "FEMALE": 3437, "TOTAL": 6555, "HOUSE": 2691, "VERSION": "10.2" }, "geometry": { "type": "Point", "coordinates": [ 100.22356717207181, 16.809028440703127 ] } },
