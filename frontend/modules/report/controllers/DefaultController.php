@@ -25,8 +25,13 @@ GROUP BY c.HOSPCODE,c.PID   " ;
         
         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
         
+        if (!empty($raw[0])) {
+            $cols = array_keys($raw[0]);
+        }
+        
         $dataProvider =new ArrayDataProvider([
             'allModels'=>$raw,
+            'sort' => !empty($cols) ? [ 'attributes' => $cols] : FALSE,
             'pagination'=>[
                 'pageSize'=>100
             ]
