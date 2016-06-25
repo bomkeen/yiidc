@@ -49,6 +49,7 @@ $js = <<<JS
                 }else{
                     layer.setIcon(L.mapbox.marker.icon({'marker-color': '$icon3'}));
                 }
+                //layer.bindTitle(feature.properties.TAM_NAMT);
                 layer.bindPopup(feature.properties.TAM_NAMT);
            }
        }).addTo(_group1);
