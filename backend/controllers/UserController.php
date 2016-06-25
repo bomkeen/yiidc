@@ -8,12 +8,11 @@ use backend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use common\components\AppController;
 
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends AppController
+class UserController extends Controller
 {
     /**
      * @inheritdoc
@@ -36,7 +35,6 @@ class UserController extends AppController
      */
     public function actionIndex()
     {
-        $this->permitRole([1,2,3]);
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -53,7 +51,6 @@ class UserController extends AppController
      */
     public function actionView($id)
     {
-         $this->permitRole([1,2,3]);
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -66,7 +63,6 @@ class UserController extends AppController
      */
     public function actionCreate()
     {
-         $this->permitRole([3]);
         $model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -86,7 +82,6 @@ class UserController extends AppController
      */
     public function actionUpdate($id)
     {
-         $this->permitRole([2,3]);
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -106,7 +101,6 @@ class UserController extends AppController
      */
     public function actionDelete($id)
     {
-         $this->permitRole([3]);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

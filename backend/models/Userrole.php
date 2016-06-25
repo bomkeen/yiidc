@@ -18,6 +18,7 @@ class Userrole extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+   
     public static function tableName()
     {
         return 'userrole';
@@ -49,5 +50,7 @@ class Userrole extends \yii\db\ActiveRecord
         ];
     }
     
-    
+    public function getFullname(){
+        return $this->role."-".$this->rolename;
+    }
 }

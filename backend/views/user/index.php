@@ -1,9 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-//use yii\grid\GridView;
-use kartik\grid\GridView;
-
+use yii\grid\GridView;
+use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -19,31 +18,24 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?=
-    GridView::widget([
-        'panel' => [
-            'before' => ''
-        ],
-        'export' => [
-            'showConfirmAlert' => false,
-            'target' => GridView::TARGET_BLANK
-        ],
+<?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            //'id',
+
+            'id',
             'username',
-            //'auth_key',
+            'auth_key',
             'password_hash',
-            //'password_reset_token',
+            'password_reset_token',
             // 'email:email',
             // 'status',
-            ['attribute' => 'role'],
-            //'created_at',
+            // 'role',
+            // 'created_at',
             // 'updated_at',
+
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]);
-    ?>
-</div>
+    ]); ?>
+<?php Pjax::end(); ?></div>

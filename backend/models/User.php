@@ -3,7 +3,6 @@
 namespace backend\models;
 
 use Yii;
-use backend\models\UserRole;
 
 /**
  * This is the model class for table "user".
@@ -19,23 +18,25 @@ use backend\models\UserRole;
  * @property string $created_at
  * @property string $updated_at
  */
-class User extends \yii\db\ActiveRecord {
-
+class User extends \yii\db\ActiveRecord
+{
     /**
      * @inheritdoc
      */
-    public static function tableName() {
+    public static function tableName()
+    {
         return 'user';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules() {
+    public function rules()
+    {
         return [
-            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+            [['username','status', 'password_hash', 'created_at', 'updated_at'], 'required'],
             [['status', 'role'], 'integer'],
-            [['username', 'password_hash', 'password_reset_token', 'email','created_at', 'updated_at'], 'string', 'max' => 255],
+            [['username', 'password_hash', 'password_reset_token', 'email', 'created_at', 'updated_at'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['username'], 'unique'],
             [['email'], 'unique'],
@@ -46,25 +47,19 @@ class User extends \yii\db\ActiveRecord {
     /**
      * @inheritdoc
      */
-    public function attributeLabels() {
+    public function attributeLabels()
+    {
         return [
             'id' => 'ID',
-            'username' => 'Username',
+            'username' => 'User',
             'auth_key' => 'Auth Key',
-            'password_hash' => 'Password Hash',
+            'password_hash' => 'Password',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
-            'status' => 'Status',
-            'role' => 'Role',
+            'status' => 'สถานะ',
+            'role' => 'สิทธิ',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
     }
-    
-    public function getRolename(){
-        return $this->hasOne(UserRole::className(),['role'=>'role']);
-    }
-
-    
-
 }

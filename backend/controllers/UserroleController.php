@@ -8,11 +8,12 @@ use backend\models\UserroleSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\components\AppController;
 
 /**
  * UserroleController implements the CRUD actions for Userrole model.
  */
-class UserroleController extends Controller
+class UserroleController extends AppController
 {
     /**
      * @inheritdoc
@@ -35,6 +36,7 @@ class UserroleController extends Controller
      */
     public function actionIndex()
     {
+        $this->permitRole([2]);
         $searchModel = new UserroleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -63,6 +65,8 @@ class UserroleController extends Controller
      */
     public function actionCreate()
     {
+        $this->permitRole([2]);
+        
         $model = new Userrole();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -82,6 +86,7 @@ class UserroleController extends Controller
      */
     public function actionUpdate($id)
     {
+        
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

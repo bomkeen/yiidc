@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use backend\models\Role;
+
+use backend\models\Userrole;
 use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
@@ -14,30 +15,29 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php echo $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'auth_key')->textInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model, 'password_hash')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'password_hash')->textInput(['maxlength' => true]) ?>
+   
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'password_reset_token')->textInput(['maxlength' => true]) ?>
-
-    <?php echo $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-
-    <?php echo $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->hiddenInput(['value'=>10])->label('') ?>
 
     <?php 
-    $raw = Role::find()->all();
-    $items= ArrayHelper::map($raw, 'role', 'roleFullName');
-    echo $form->field($model, 'role')->dropDownList($items);
+    $m = Userrole::find()->all();
+    $items = ArrayHelper::map($m,'role', 'fullname');
+    echo $form->field($model, 'role')->dropDownList($items) ;
+    
     ?>
 
-    <?php echo $form->field($model, 'created_at')->textInput(['value'=>date('Y-m-d H:i:s')]) ?>
+    <?= $form->field($model, 'created_at')->textInput(['value'=>date('YmdHis')]) ?>
 
-    <?php echo $form->field($model, 'updated_at')->textInput(['value'=>date('Y-m-d H:i:s')]) ?>
+    <?= $form->field($model, 'updated_at')->textInput(['value'=>date('YmdHis')]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'เพิ่ม' : 'แก้ไข', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
