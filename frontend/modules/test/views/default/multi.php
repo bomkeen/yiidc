@@ -23,8 +23,7 @@ $js = <<<JS
         
     L.mapbox.accessToken = 'pk.eyJ1IjoidGVobm5uIiwiYSI6ImNpZzF4bHV4NDE0dTZ1M200YWxweHR0ZzcifQ.lpRRelYpT0ucv1NN08KUWQ';
     var map = L.mapbox.map('map').setView([16, 100], 6);
-   
-   
+      
     var baseLayers = {
 	"แผนที่ถนน": L.mapbox.tileLayer('mapbox.streets')  ,
         "แผนที่ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite'),
@@ -36,8 +35,7 @@ $js = <<<JS
         
     var _group1 = L.layerGroup();
     var _group2 = L.layerGroup().addTo(map);
-    
-        
+           
     
      $.getJSON('./gis/point.json',function(data){
           p_layer=L.geoJson(data,{
