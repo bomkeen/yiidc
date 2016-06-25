@@ -25,17 +25,14 @@ echo GridView::widget([
 
 <div id="container">   
     <?php
-        $data = [];
-        $hos = [];
+        $data = [];        
         foreach ($raw as $value) {
             $data[] = [
                 'name'=>$value['hos'],
                 'data'=>[$value['total']*1]
-            ];
-            
+            ];            
         }
-        $data = json_encode($data);
-        $hos = json_encode($hos);
+        $data = json_encode($data);      
     
     ?>
 </div>
