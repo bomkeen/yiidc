@@ -1,5 +1,5 @@
 <?php
-$this->title = "Polygon";
+$this->title = "Multi";
 $this->registerCssFile('https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css', ['async' => false, 'defer' => true]);
 $this->registerJsFile('https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js', ['position' => $this::POS_HEAD]);
 ?>
@@ -21,18 +21,50 @@ $js = <<<JS
         
     L.mapbox.accessToken = 'pk.eyJ1IjoidGVobm5uIiwiYSI6ImNpZzF4bHV4NDE0dTZ1M200YWxweHR0ZzcifQ.lpRRelYpT0ucv1NN08KUWQ';
     var map = L.mapbox.map('map', 'mapbox.streets').setView([16, 100], 6);
+    var p_layer;
     var area_layer;
+        
+    var _group1 = L.layerGroup();
+    var _group2 = L.layerGroup().addTo(map);
+    
+        
+    
+     $.getJSON('./gis/point.json',function(data){
+          p_layer=L.geoJson(data,{
+           onEachFeature:function(feature,layer){
+                if(feature.properties.TAM_CODE<=5){
+                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '$icon1'})); 
+                }else if(feature.properties.TAM_CODE>=10){
+                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '$icon2'}));
+                }else{
+                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '$icon3'}));
+                }
+                layer.bindPopup(feature.properties.TAM_NAMT);
+           }
+       }).addTo(_group1);
+         map.fitBounds(p_layer.getBounds());
+        
+    }); 
+   
+   
+   
      $.getJSON('./gis/plk.json',function(data){
        area_layer=L.geoJson(data,{
            style:style,
-           onEachFeature:function(feature,layer){
-                
+           onEachFeature:function(feature,layer){               
         
                 layer.bindPopup(feature.properties.TAM_NAMT);
            }
-       }).addTo(map);
-        map.fitBounds(area_layer.getBounds());
+       }).addTo(_group2);
+        
     });
+        var overlayMaps = {
+                 "หลังคาเรือน": _group1,
+                "ขอบเขตตำบล": _group2
+               
+            };
+        
+        L.control.layers({},overlayMaps).addTo(map);
         
     function getColor(code) {
         switch (code) {
@@ -54,6 +86,9 @@ $js = <<<JS
             fillOpacity: 0.7
         }
 }
+    
+   
+    
         
 JS;
 $this->registerJs($js);

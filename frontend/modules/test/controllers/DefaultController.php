@@ -28,4 +28,7 @@ class DefaultController extends AppController
     public function actionPolygon(){
         return $this->render('polygon');
     }
+    public function actionMulti(){
+        return $this->render('multi');
+    }
 }
