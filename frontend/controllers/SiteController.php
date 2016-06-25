@@ -215,4 +215,21 @@ class SiteController extends AppController
             'model' => $model,
         ]);
     }
-}
+    
+    public function actionTest1(){
+        
+        echo "เรียกมาที  test1";
+        
+    }
+    public function actionTest2($param1='',$param2=''){
+        
+        return $this->render('test2',[
+            'param1'=>$param1,
+            'param2'=>$param2
+        ]);
+        
+    }
+    
+    
+    
+}// จบ class controller
