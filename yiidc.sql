@@ -14,6 +14,7 @@ Date: 2016-06-24 17:00:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+SET NAMES 'utf8' COLLATE 'utf8_general_ci';
 
 -- ----------------------------
 -- Table structure for accident
