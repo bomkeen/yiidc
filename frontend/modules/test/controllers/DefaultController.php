@@ -25,4 +25,7 @@ class DefaultController extends AppController
     public function actionPoint(){
         return $this->render('point');
     }
+    public function actionPolygon(){
+        return $this->render('polygon');
+    }
 }

@@ -14,6 +14,9 @@ $this->registerJsFile('https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js', ['pos
 
 
 <?php
+$icon1 = "#40ff00";
+$icon2 = "#3366ff";
+$icon3 = "#ff3300";
 $js = <<<JS
     L.mapbox.accessToken = 'pk.eyJ1IjoidGVobm5uIiwiYSI6ImNpZzF4bHV4NDE0dTZ1M200YWxweHR0ZzcifQ.lpRRelYpT0ucv1NN08KUWQ';
     var map = L.mapbox.map('map', 'mapbox.streets').setView([16, 100], 6);
@@ -22,11 +25,11 @@ $js = <<<JS
        var house_layer=L.geoJson(data,{
            onEachFeature:function(feature,layer){
                 if(feature.properties.TAM_CODE<=5){
-                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '#ff3300'})); 
+                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '$icon1'})); 
                 }else if(feature.properties.TAM_CODE>=10){
-                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '#3366ff'}));
+                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '$icon2'}));
                 }else{
-                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '#40ff00'}));
+                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '$icon3'}));
                 }
                 layer.bindPopup(feature.properties.TAM_NAMT);
            }
