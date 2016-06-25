@@ -5,7 +5,10 @@ $this->registerJsFile('https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js', ['pos
 ?>
 
 
-<div class="panel panel-success">       
+<div class="panel panel-success">  
+    <div class="panel-heading panel-danger">
+        <h4>แผนที่แสดงความชุกการเกิดอุบัติเหตุ</h4>
+    </div>
     <div class="panel-body">
         <div id="map" style="width: 100%;height: 460px"></div>   
     </div>
