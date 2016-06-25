@@ -31,4 +31,10 @@ class DefaultController extends AppController
     public function actionMulti(){
         return $this->render('multi');
     }
+    
+    public function actionGenPoint(){
+     
+       
+    }
+    
 }

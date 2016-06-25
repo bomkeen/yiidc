@@ -20,7 +20,14 @@ $icon3 = "#ff3300";
 $js = <<<JS
         
     L.mapbox.accessToken = 'pk.eyJ1IjoidGVobm5uIiwiYSI6ImNpZzF4bHV4NDE0dTZ1M200YWxweHR0ZzcifQ.lpRRelYpT0ucv1NN08KUWQ';
-    var map = L.mapbox.map('map', 'mapbox.streets').setView([16, 100], 6);
+    var map = L.mapbox.map('map').setView([16, 100], 6);
+   
+   
+    var baseLayers = {
+	"แผนที่ถนน": L.mapbox.tileLayer('mapbox.streets')  ,
+        "แผนที่ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite')
+    };
+    
     var p_layer;
     var area_layer;
         
@@ -58,13 +65,13 @@ $js = <<<JS
        }).addTo(_group2);
         
     });
-        var overlayMaps = {
+        var overlays = {
                  "หลังคาเรือน": _group1,
                 "ขอบเขตตำบล": _group2
                
             };
         
-        L.control.layers({},overlayMaps).addTo(map);
+        L.control.layers(baseLayers,overlays).addTo(map);
         
     function getColor(code) {
         switch (code) {
