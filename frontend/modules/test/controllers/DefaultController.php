@@ -22,4 +22,7 @@ class DefaultController extends AppController
     public function actionChart(){
         return $this->render('chart');
     }
+    public function actionPoint(){
+        return $this->render('point');
+    }
 }
