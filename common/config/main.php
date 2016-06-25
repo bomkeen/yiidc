@@ -17,6 +17,9 @@ return [
         'import' => [
             'class' => 'frontend\modules\import\Import',
         ],
+         'report' => [
+            'class' => 'frontend\modules\report\Report',
+        ],
     ],
     'controllerMap' => [
         'file' => 'mdm\\upload\\FileController', // use to show or download file
