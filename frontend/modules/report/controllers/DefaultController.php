@@ -4,6 +4,7 @@ namespace frontend\modules\report\controllers;
 
 use yii\web\Controller;
 use yii\data\ArrayDataProvider;
+use dosamigos\arrayquery\ArrayQuery;
 
 /**
  * Default controller for the `report` module
@@ -24,8 +25,12 @@ FROM  chronic c
 INNER JOIN person p 
 ON p.HOSPCODE = c.HOSPCODE AND p.PID = c.PID
 GROUP BY c.HOSPCODE,c.PID   " ;
-        
+                
         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
+        
+       
+        
+       
         
         if (!empty($raw[0])) {
             $cols = array_keys($raw[0]);
