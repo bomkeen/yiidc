@@ -9,6 +9,7 @@ use dosamigos\arrayquery\ArrayQuery;
 class ChartController extends Controller {
 
     public function actionTest1() {
+        
         $sql = " select * from temp_chart ";
         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
         
