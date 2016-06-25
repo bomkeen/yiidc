@@ -18,7 +18,7 @@ class ChartController extends Controller {
             'allModels' => $raw
         ]);
 
-        return $this->render('test1', [
+        return $this->render('chart1', [
                     'dataProvider' => $dataProvider,
                     'raw' => $raw
         ]);
