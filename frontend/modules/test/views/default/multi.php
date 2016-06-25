@@ -1,7 +1,9 @@
 <?php
 $this->title = "Multi";
+
 $this->registerCssFile('https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css', ['async' => false, 'defer' => true]);
 $this->registerJsFile('https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js', ['position' => $this::POS_HEAD]);
+
 ?>
 
 
@@ -25,7 +27,8 @@ $js = <<<JS
    
     var baseLayers = {
 	"แผนที่ถนน": L.mapbox.tileLayer('mapbox.streets')  ,
-        "แผนที่ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite')
+        "แผนที่ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite'),
+        
     };
     
     var p_layer;
