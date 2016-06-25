@@ -1,5 +1,5 @@
 <?php
-$this->title = "Point";
+$this->title = "Polygon";
 $this->registerCssFile('https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css', ['async' => false, 'defer' => true]);
 $this->registerJsFile('https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js', ['position' => $this::POS_HEAD]);
 ?>
@@ -21,22 +21,39 @@ $js = <<<JS
         
     L.mapbox.accessToken = 'pk.eyJ1IjoidGVobm5uIiwiYSI6ImNpZzF4bHV4NDE0dTZ1M200YWxweHR0ZzcifQ.lpRRelYpT0ucv1NN08KUWQ';
     var map = L.mapbox.map('map', 'mapbox.streets').setView([16, 100], 6);
-    
-     $.getJSON('./gis/point.json',function(data){
+    var _layer;
+     $.getJSON('./gis/plk.json',function(data){
        var _layer=L.geoJson(data,{
+           style:style,
            onEachFeature:function(feature,layer){
-                if(feature.properties.TAM_CODE<=5){
-                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '$icon1'})); 
-                }else if(feature.properties.TAM_CODE>=10){
-                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '$icon2'}));
-                }else{
-                    layer.setIcon(L.mapbox.marker.icon({'marker-color': '$icon3'}));
-                }
+                
+        
                 layer.bindPopup(feature.properties.TAM_NAMT);
            }
        }).addTo(map);
         map.fitBounds(_layer.getBounds());
     });
+        
+    function getColor(code) {
+        switch (code) {
+            case 1:
+                return 'red';
+            case 2:
+                return 'yellow';
+            default:
+                return 'green';
+        }
+    }
+    function style(feature) {
+        return {
+            fillColor: getColor(feature.properties.TAM_CODE),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+        }
+}
         
 JS;
 $this->registerJs($js);
