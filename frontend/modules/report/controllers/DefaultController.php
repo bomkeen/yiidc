@@ -66,4 +66,8 @@ GROUP BY c.HOSPCODE,c.PID   ";
             'raw'=>$raw
         ]);
     }
+    
+    public function actionMap1(){
+        return $this->render('map1');
+    }
 }
