@@ -57,5 +57,12 @@ GROUP BY c.HOSPCODE,c.PID   ";
                     'find' => $find
         ]);
     }
-
+    
+    public function actionChart1(){
+        
+        
+        return $this->render('chart1',[
+            
+        ]);
+    }
 }
