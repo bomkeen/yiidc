@@ -8,9 +8,9 @@ use miloschuman\highcharts\Highcharts;
     <?php
     echo Highcharts::widget([
         'scripts' => [
-            'highcharts-more', // enables supplementary chart types (gauge, arearange, columnrange, etc.)
-            //'modules/exporting', // adds Exporting button/menu to chart
-            //'themes/grid',       // applies global 'grid' theme to all charts
+            'highcharts-more', 
+            //'modules/exporting', 
+            //'themes/grid',       
             //'highcharts-3d',
             'modules/drilldown'
         ]
