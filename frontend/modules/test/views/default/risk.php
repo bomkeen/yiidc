@@ -9,12 +9,14 @@ $this->registerJsFile('https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js', ['pos
     <div class="panel-body">
         <div id="map" style="width: 100%;height: 460px"></div>   
     </div>
-    <div class="panel-footer" id="info"></div>
+    <div class="panel-footer" id="info">
+        <?php
+        echo $geojson;
+        ?>
+    </div>
 </div>
 
-<?php
-echo $geojson;
-?>
+
 
 
 <?php
@@ -28,7 +30,11 @@ $js = <<<JS
     L.mapbox.accessToken = 'pk.eyJ1IjoidGVobm5uIiwiYSI6ImNpZzF4bHV4NDE0dTZ1M200YWxweHR0ZzcifQ.lpRRelYpT0ucv1NN08KUWQ';
     var map = L.mapbox.map('map', 'mapbox.streets').setView([16, 100], 6);
     
-    L.geoJson($geojson).addTo(map);
+    L.geoJson($geojson,{
+           onEachFeature:function(feature,layer){                
+                layer.bindPopup(feature.properties.name);
+           }
+       }).addTo(map);
     
         
 JS;

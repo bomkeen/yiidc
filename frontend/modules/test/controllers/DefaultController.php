@@ -40,6 +40,9 @@ class DefaultController extends AppController
         foreach ($raw as $value) {
             $geojson[]=[
                 'type'=>'Feature',
+                'properties'=>[
+                    'name'=>$value['note']
+                ],
                 'geometry'=>[
                     'type'=>'Point',
                     'coordinates'=>[$value['lng']*1,$value['lat']*1],                    
