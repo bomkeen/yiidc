@@ -41,6 +41,19 @@ echo GridView::widget([
         'showConfirmAlert' => false,
         'target' => GridView::TARGET_BLANK
     ],
+    'columns'=>[
+        [
+            'attribute'=>'CID',
+            'format'=>'raw',
+            'value'=>function($data){
+                return  Html::a($data['CID'],['/site/index','cid'=>$data['CID']]);
+            }
+        ],
+        'NAME',
+        'LNAME',
+        
+    ]
+    
 ]);
 
 ?>
