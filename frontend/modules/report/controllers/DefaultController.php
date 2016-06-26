@@ -59,10 +59,11 @@ GROUP BY c.HOSPCODE,c.PID   ";
     }
     
     public function actionChart1(){
-        
+        $sql = " select * from temp_chart ";
+        $raw = \Yii::$app->db->createCommand($sql)->queryAll();
         
         return $this->render('chart1',[
-            
+            'raw'=>$raw
         ]);
     }
 }
