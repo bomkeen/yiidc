@@ -32,9 +32,24 @@ class DefaultController extends AppController
         return $this->render('multi');
     }
     
-    public function actionGenPoint(){
-     
-       
+    
+    public function actionRisk(){
+        $sql = " select * from temp_gis";
+        $raw = \Yii::$app->db->createCommand($sql)->queryAll();
+        $geojson =[];
+        foreach ($raw as $value) {
+            $geojson[]=[
+                'type'=>'Feature',
+                'geometry'=>[
+                    'type'=>'Point',
+                    'coordinates'=>[$value['lng']*1,$value['lat']*1],                    
+                ]
+            ];
+        }
+        $geojson = json_encode($geojson);
+        return $this->render('risk',[
+            'geojson'=>$geojson
+        ]);
     }
     
 }
