@@ -6,6 +6,7 @@ use yii\web\Response;
 use dosamigos\arrayquery\ArrayQuery;
 use common\components\AppController;
 
+
 class Test1Controller extends AppController {
 
     public $enableCsrfValidation = false;
@@ -56,6 +57,14 @@ class Test1Controller extends AppController {
     public function actionDoSome() {
         $this->permitRole([0, 1, 2, 3]);
         return "OK";
+    }
+    
+    public function actionGetData(){
+        \Yii::$app->response->format = Response::FORMAT_JSON;
+        $sql = " select * from chronic ";
+        $raw = \Yii::$app->db->createCommand($sql)->queryAll();
+        return $raw;
+        
     }
 
 }
