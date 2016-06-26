@@ -34,7 +34,7 @@ $.getJSON('./gis/point.json',function(data){
                     layer.setIcon(L.mapbox.marker.icon({'marker-color': '$icon3'}));
                 }
             
-            layer.bindPopup(feature.properties.TAM_NAMT);
+            layer.bindPopup(feature.properties.TAM_CODE +feature.properties.TAM_NAMT);
            }
        
        }).addTo(map);
